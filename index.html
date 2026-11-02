@@ -156,6 +156,27 @@ section{padding:70px 0}
 .sup h3{font-size:19px}
 .role{display:inline-block;background:var(--em);color:#03120b;font:800 13px Cairo;padding:1px 14px;border-radius:99px;margin-bottom:6px}
 @media (max-width:700px){.bar{flex-wrap:wrap;gap:8px 12px}.brand{height:38px}.logos{order:3;width:100%;justify-content:center}.logo{width:86px;height:36px;font-size:9px}.hero{padding-top:176px}#mech{padding-top:166px}.member h3{font-size:15px}.hero-logo{height:80px}}
+.msub{font:800 clamp(22px,2.6vw,28px) Cairo,sans-serif;margin:64px 0 18px}
+.call{background:linear-gradient(135deg,var(--night),var(--night2));color:#fff;border-radius:18px;padding:24px 28px;font:700 clamp(18px,2.4vw,24px)/1.7 Cairo,sans-serif;margin-bottom:22px;border-inline-start:6px solid var(--em)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:var(--surf)}
+.tbl table{width:100%;border-collapse:collapse;min-width:680px;font-size:16px}
+.tbl th,.tbl td{padding:14px 16px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{background:rgba(100,116,139,.12);font:700 16px Cairo,sans-serif}
+.tbl tr:last-child td{border-bottom:0}
+.tag{display:inline-block;font:700 13px Cairo,sans-serif;padding:2px 12px;border-radius:99px;white-space:nowrap}
+.tag.ok{background:rgba(16,185,129,.16);color:var(--em-d)}
+.tag.tst{background:rgba(100,116,139,.18);color:var(--mute)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tag.ok{color:var(--em)}}
+.meta{list-style:none;margin:14px 0 0;padding:14px 0 0;border-top:1px solid var(--line);font-size:15px;color:var(--mute);line-height:1.7}
+.meta li{margin-bottom:6px}
+.meta strong{color:var(--ink)}
+.pitch{background:var(--night);color:#fff;border-radius:22px;padding:38px 32px;margin-top:56px;border-top:5px solid var(--em)}
+.pitch h3{color:var(--em);font-size:22px;margin-bottom:12px}
+.pitch p{font:700 clamp(19px,2.5vw,26px)/1.8 Cairo,sans-serif;margin:0 0 12px;max-width:34em}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.chip{border:1px solid var(--em);color:var(--em);border-radius:99px;padding:3px 16px;font-size:15px}
+.src{font-size:14px;color:var(--mute);margin:26px 0 0;max-width:46em}
+@media (min-width:1101px){nav a{padding:6px 10px;font-size:15px}}
 </style>
 </head>
 <body>
@@ -170,7 +191,7 @@ section{padding:70px 0}
    <div class="logo">شعار رؤية عُمان 2040</div>
   </div>
   <nav id="nav">
-   <a href="#hero">الرئيسية</a><a href="#concept">الفكرة</a><a href="#how">الآلية</a><a href="#stats">الأرقام</a><a href="#team">الفريق</a><a class="hl" href="#mechanism">رحلة الطوب</a>
+   <a href="#hero">الرئيسية</a><a href="#concept">الفكرة</a><a href="#how">الآلية</a><a href="#stats">الأرقام</a><a href="#model">نموذج العمل</a><a href="#team">الفريق</a><a class="hl" href="#mechanism">رحلة الطوب</a>
   </nav>
   <button class="burger" id="burger" aria-label="القائمة" aria-expanded="false">☰</button>
  </div>
@@ -225,6 +246,59 @@ section{padding:70px 0}
    <div class="stat rv"><div class="num" data-to="55" data-suf="%">0</div><b>من إجمالي النفايات</b><span class="sub">الخليج العربي: نسبة مخلفات البناء من النفايات المنتجة</span></div>
    <div class="stat rv"><div class="num" data-to="3000000000" data-pre="+">0</div><b>أكثر من 3 مليارات طن</b><span class="sub">عالميًا: حجم مخلفات البناء المهدورة سنويًا</span></div>
   </div>
+ </div>
+</section>
+
+<section id="model" style="padding-top:0">
+ <div class="wrap">
+  <h2 class="title rv">نموذج العمل</h2>
+  <p class="lead rv">من فكرة بيئية إلى مشروع يبيع ويربح: المشكلة، والقيمة المضافة، والمنتجات، والملخص التعريفي.</p>
+
+  <h3 class="msub rv">المشكلة التي نحلها</h3>
+  <div class="call rv">المقاول العُماني يدفع مرتين: مرة ليتخلص من ركام الهدم، ومرة ليشتري مواد بناء جديدة.</div>
+  <div class="stats">
+   <div class="stat rv"><div class="num" data-to="33" data-suf="%">0</div><b>من النفايات المعالجة</b><span class="sub">حصة مخلفات البناء والهدم، وهي أكبر مجرى نفايات في عُمان</span></div>
+   <div class="stat rv"><div class="num" data-to="21000000" data-pre="+">0</div><b>طن منذ 2019</b><span class="sub">ما استلمته «بيئة» من مخلفات البناء والهدم</span></div>
+   <div class="stat rv"><div class="num" data-to="31">0</div><b>موقعًا مخصصًا</b><span class="sub">لاستقبال مخلفات البناء، وهي مصدر موادنا الأولية</span></div>
+  </div>
+  <div class="cards" style="margin-top:22px">
+   <article class="card rv"><div class="ico">🚛</div><h3>يدفع ليتخلص</h3><p>تكلفة نقل الركام وتفريغه، ومخاطر المخالفة إذا رُمي عشوائيًا في الأودية.</p></article>
+   <article class="card rv"><div class="ico">🏗️</div><h3>ثم يدفع ليشتري</h3><p>ركام ورمل وطابوق جديد من المحاجر، مع تكلفة النقل والمسافة.</p></article>
+   <article class="card rv"><div class="ico">🧩</div><h3>والفجوة قائمة</h3><p>المعالجة الحالية تنتج غالبًا حصى ورمل وردم، أما منتج بناء نهائي جاهز بمواصفة فقليل. هنا يدخل رَفَدَ.</p></article>
+  </div>
+  <p class="lead rv" style="margin:22px 0 0">لماذا سيشعر العميل بالحاجة؟ لأن منتجنا يخفض الفاتورتين معًا، ويمنحه ما يثبت التزامه البيئي، في وقت تتجه فيه السياسات إلى رفع نسب التحويل عن المكبات.</p>
+
+  <h3 class="msub rv">القيمة المضافة والميزة التنافسية</h3>
+  <div class="tbl rv"><table>
+   <thead><tr><th>المعيار</th><th>الطابوق العادي</th><th>طابوق رَفَدَ</th><th>الحالة</th></tr></thead>
+   <tbody>
+    <tr><td>التكلفة</td><td>مواد خام جديدة</td><td>مادة أولية شبه مجانية، وقد نتقاضى رسوم استلام</td><td><span class="tag ok">منطقي، يحتاج تسعيرًا</span></td></tr>
+    <tr><td>الوزن</td><td>كثافة أعلى</td><td>أخف، لأن كثافة الركام المعاد تدويره أقل</td><td><span class="tag tst">يلزم اختبار</span></td></tr>
+    <tr><td>العزل الحراري</td><td>موصلية حرارية أعلى</td><td>موصلية أقل؛ وجدت دراسة أنها أقل بنحو 27% في الخرسانة المعاد تدويرها</td><td><span class="tag tst">يلزم اختبار</span></td></tr>
+    <tr><td>امتصاص الماء</td><td>أقل</td><td>أعلى، ونعالجه بنسبة استبدال محسوبة ومعالجة السطح</td><td><span class="tag tst">تحدٍّ نديره</span></td></tr>
+    <tr><td>المقاومة</td><td>المرجع</td><td>مطابقة للمواصفة بنسب مضبوطة، ويُنصح ألا يتجاوز الطوب المطحون 25% من الركام الخشن</td><td><span class="tag tst">يلزم اختبار</span></td></tr>
+    <tr><td>الأثر البيئي</td><td>استخراج ونقل</td><td>مكبات ومحاجر أقل، ونقل أقصر</td><td><span class="tag ok">مؤكد مبدئيًا</span></td></tr>
+   </tbody>
+  </table></div>
+  <p class="lead rv" style="margin:18px 0 0">نصيحة المستشار: لا نبيع وعدًا لم نثبته. نبدأ بالسعر والاستدامة، ونضيف الوزن والعزل بعد أن تؤكدهما شهادة مختبر.</p>
+
+  <h3 class="msub rv">ثلاثة منتجات بديلة بقيمة سوقية</h3>
+  <div class="cards">
+   <article class="card rv"><div class="ico">🌧️</div><h3>بلاط رصف مسامي</h3><p>يصرّف مياه الأمطار إلى التربة ويقلل حرارة السطح.</p>
+    <ul class="meta"><li><strong>المشتري:</strong> البلديات والمنتجعات والمطورون وشركات التنسيق</li><li><strong>لماذا الحاجة:</strong> الأمطار الغزيرة والحرارة العالية</li><li><strong>الهامش:</strong> مرتفع</li><li><strong>أول خطوة:</strong> ممر تجريبي في حديقة المدرسة</li></ul></article>
+   <article class="card rv"><div class="ico">🧰</div><h3>مونة ولياسة جاهزة</h3><p>أكياس جاهزة من الجزء الناعم من الركام، وهو الأصعب تصريفًا.</p>
+    <ul class="meta"><li><strong>المشتري:</strong> المقاولون الصغار ومحلات مواد البناء والملاك</li><li><strong>لماذا الحاجة:</strong> استهلاك يومي وطلب متكرر</li><li><strong>الهامش:</strong> متوسط بكميات كبيرة</li><li><strong>أول خطوة:</strong> تجربة مزيج مع مقاول متعاون</li></ul></article>
+   <article class="card rv"><div class="ico">🪴</div><h3>عناصر تنسيق وجدران ساندة</h3><p>أحواض زراعة، وحدود ممرات، ومقاعد، وكتل جدران، وحجارة تعبئة لسلال الجابيون.</p>
+    <ul class="meta"><li><strong>المشتري:</strong> البلديات والفلل والمزارع ومشاريع حماية الأودية</li><li><strong>لماذا الحاجة:</strong> التشجير وحماية التربة أولويات ثابتة</li><li><strong>الهامش:</strong> مرتفع على القطع الزخرفية</li><li><strong>أول خطوة:</strong> كتالوج من خمس قطع وطلبات مسبقة</li></ul></article>
+  </div>
+
+  <div class="pitch rv">
+   <h3>الملخص التعريفي</h3>
+   <p>رَفَدَ شركة عُمانية ناشئة تحوّل مخلفات الهدم من عبء يُدفن بتكلفة إلى طابوق وبلاط حدائق ومونة جاهزة، بسعر أقل وأثر بيئي أقل.</p>
+   <p>نربح من مصدرين: رسوم استلام الركام، وبيع منتجات مختبرة ومطابقة للمواصفات للمقاولين والبلديات والمطورين.</p>
+   <div class="chips"><span class="chip">دخل 1: رسوم الاستلام</span><span class="chip">دخل 2: بيع المنتجات</span><span class="chip">الخطوة التالية: اختبار مخبري وعرض تجريبي</span></div>
+  </div>
+  <p class="src rv">المصادر: «بيئة» عبر Oman Observer وCircle Economy، ودراسات عن الخرسانة المعاد تدويرها (PolyU وTU Delft وManipal). قيم الأداء تقديرية إلى حين الاختبار المخبري.</p>
  </div>
 </section>
 
