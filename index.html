@@ -243,6 +243,11 @@ section{padding:70px 0}
 .hs.on .sam::after{opacity:1}
 @keyframes haze{to{transform:translateY(-12px)}}
 .deg{font:900 22px Cairo,sans-serif;direction:ltr}
+.hs.on .sam.a{background:#e9854f}
+.hs.on .sam.b{background:#bfe0d0}
+.hs.on .sam.b::after{opacity:.25}
+.hint{font-size:13px;opacity:.85}
+.hs.real .hint{display:none}
 </style>
 </head>
 <body>
@@ -271,7 +276,7 @@ section{padding:70px 0}
  <i class="leaf" style="width:120px;height:120px;top:18%;inset-inline-end:6%;animation-delay:-6s"></i>
  <div class="wrap">
   <svg class="hero-logo h-in" style="--i:0" viewBox="0 0 225.7 110" role="img" aria-label="رَفَدَ"><use href="#rafad"/></svg>
-  <h1 class="h-in" style="--i:0">من ركام الهدم إلى أساسات المستقبل… <span>نبني عُمان الغد، بلا هدرٍ اليوم.</span></h1>
+  <h1 class="h-in" style="--i:0"><em style="font-style:normal">من ركام الهدم إلى أساسات المستقبل…</em> <span>نبني عُمان الغد، بلا هدرٍ اليوم.</span></h1>
   <p class="h-in" style="--i:1">مشروع طلابي مبتكر لتحويل مخلفات الطوب والخرسانة إلى ثروة وطنية مستدامة تدعم الاقتصاد الدائري.</p>
   <a class="btn h-in" style="--i:2" href="#mechanism">اكتشف الآلية</a>
  </div>
@@ -318,7 +323,7 @@ section{padding:70px 0}
 <section id="model" style="padding-top:0">
  <div class="wrap">
   <h2 class="title rv">نموذج العمل</h2>
-  <p class="lead rv">من فكرة بيئية إلى مشروع يبيع ويربح: المشكلة، والقيمة المضافة، والمنتجات، والملخص التعريفي.</p>
+  <p class="lead rv">من فكرة بيئية إلى مشروع يبيع ويربح: المشكلة، والقيمة المضافة، والملخص التعريفي.</p>
 
   <h3 class="msub rv">المشكلة التي نحلها</h3>
   <div class="call rv">المقاول العُماني يدفع مرتين: مرة ليتخلص من ركام الهدم، ومرة ليشتري مواد بناء جديدة.</div>
@@ -348,19 +353,9 @@ section{padding:70px 0}
   </table></div>
   <p class="lead rv" style="margin:18px 0 0">نصيحة المستشار: لا نبيع وعدًا لم نثبته. نبدأ بالسعر والاستدامة، ونضيف الوزن والعزل بعد أن تؤكدهما شهادة مختبر.</p>
 
-  <h3 class="msub rv">ثلاثة منتجات بديلة بقيمة سوقية</h3>
-  <div class="cards">
-   <article class="card rv"><div class="ico">🌧️</div><h3>بلاط رصف مسامي</h3><p>يصرّف مياه الأمطار إلى التربة ويقلل حرارة السطح.</p>
-    <ul class="meta"><li><strong>المشتري:</strong> البلديات والمنتجعات والمطورون وشركات التنسيق</li><li><strong>لماذا الحاجة:</strong> الأمطار الغزيرة والحرارة العالية</li><li><strong>الهامش:</strong> مرتفع</li><li><strong>أول خطوة:</strong> ممر تجريبي في حديقة المدرسة</li></ul></article>
-   <article class="card rv"><div class="ico">🧰</div><h3>مونة ولياسة جاهزة</h3><p>أكياس جاهزة من الجزء الناعم من الركام، وهو الأصعب تصريفًا.</p>
-    <ul class="meta"><li><strong>المشتري:</strong> المقاولون الصغار ومحلات مواد البناء والملاك</li><li><strong>لماذا الحاجة:</strong> استهلاك يومي وطلب متكرر</li><li><strong>الهامش:</strong> متوسط بكميات كبيرة</li><li><strong>أول خطوة:</strong> تجربة مزيج مع مقاول متعاون</li></ul></article>
-   <article class="card rv"><div class="ico">🪴</div><h3>عناصر تنسيق وجدران ساندة</h3><p>أحواض زراعة، وحدود ممرات، ومقاعد، وكتل جدران، وحجارة تعبئة لسلال الجابيون.</p>
-    <ul class="meta"><li><strong>المشتري:</strong> البلديات والفلل والمزارع ومشاريع حماية الأودية</li><li><strong>لماذا الحاجة:</strong> التشجير وحماية التربة أولويات ثابتة</li><li><strong>الهامش:</strong> مرتفع على القطع الزخرفية</li><li><strong>أول خطوة:</strong> كتالوج من خمس قطع وطلبات مسبقة</li></ul></article>
-  </div>
-
   <div class="pitch rv">
    <h3>الملخص التعريفي</h3>
-   <p>رَفَدَ شركة عُمانية ناشئة تحوّل مخلفات الهدم من عبء يُدفن بتكلفة إلى طابوق وبلاط حدائق ومونة جاهزة، بسعر أقل وأثر بيئي أقل.</p>
+   <p>رَفَدَ شركة عُمانية ناشئة تحوّل مخلفات الهدم من عبء يُدفن بتكلفة إلى طابوق وبلاط حدائق مستدام، بسعر أقل وأثر بيئي أقل.</p>
    <p>نربح من مصدرين: رسوم استلام الركام، وبيع منتجات مختبرة ومطابقة للمواصفات للمقاولين والبلديات والمطورين.</p>
    <div class="chips"><span class="chip">دخل 1: رسوم الاستلام</span><span class="chip">دخل 2: بيع المنتجات</span><span class="chip">الخطوة التالية: اختبار مخبري وعرض تجريبي</span></div>
   </div>
@@ -378,10 +373,10 @@ section{padding:70px 0}
 <div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">1</span><span class="plus">+</span><h3>جمع مخلفات البناء</h3><p>استلام الركام من مواقع الهدم ومواقع «بيئة».</p><div class="more"><div><div class="mrow"><span class="big">🚛</span><p>نستلم الركام من مواقع الهدم والتجديد ومن مواقع «بيئة» المخصصة لمخلفات البناء، ونسجّل مصدره وكميته.</p></div></div></div></div>
 <div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">2</span><span class="plus">+</span><h3>فرز الخرسانة والطوب</h3><p>فصل الركام النظيف عن الحديد والخشب والبلاستيك.</p><div class="more"><div><div class="mrow"><span class="big">🧲</span><p>نفصل الخرسانة والطوب عن الحديد والخشب والبلاستيك والتربة، لأن الشوائب تضعف البلاطة.</p></div></div></div></div>
 <div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">3</span><span class="plus">+</span><h3>طحن الركام وتجهيزه</h3><p>تكسير وغربلة إلى أحجام جاهزة للخلط.</p><div class="more"><div><div class="mrow"><span class="big">⚙️</span><p>تكسّر الكسارة القطع الكبيرة، ثم نغربلها إلى أحجام خشنة وناعمة ونزيل الغبار.</p></div></div></div></div>
-<div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">4</span><span class="plus">+</span><h3>إعداد الخلطات التجريبية <span class="tag tst">قيد التجربة</span></h3><p>ثلاث خلطات A وB وC بنسب مختلفة.</p><div class="more"><div><div class="mrow"><span class="big">🧪</span><p>نجهّز ثلاث خلطات بنسب استبدال مختلفة للركام المعاد تدويره، لنعرف أفضل توازن بين القوة والتصريف.</p></div></div></div></div>
+<div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">4</span><span class="plus">+</span><h3><em style="font-style:normal">إعداد الخلطات التجريبية</em> <span class="tag tst">قيد التجربة</span></h3><p>ثلاث خلطات A وB وC بنسب مختلفة.</p><div class="more"><div><div class="mrow"><span class="big">🧪</span><p>نجهّز ثلاث خلطات بنسب استبدال مختلفة للركام المعاد تدويره، لنعرف أفضل توازن بين القوة والتصريف.</p></div></div></div></div>
 <div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">5</span><span class="plus">+</span><h3>إضافة التصميم المسامي</h3><p>فتحات وفواصل لدخول ماء المطر.</p><div class="more"><div><div class="mrow"><span class="big">🔳</span><p>نصمم البلاطة بفتحات وفواصل تسمح بدخول ماء المطر، وتُملأ بالحصى أو النباتات كما في التصوّر أعلاه.</p></div></div></div></div>
-<div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">6</span><span class="plus">+</span><h3>التشكيل والمعالجة <span class="tag tst">قيد التجربة</span></h3><p>صب البلاط في قوالب وتصليبه.</p><div class="more"><div><div class="mrow"><span class="big">🧱</span><p>نصب الخلطة أو نكبسها في قوالب، ثم نتركها تتصلب في ظروف رطبة حتى تكتسب قوتها.</p></div></div></div></div>
-<div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">7</span><span class="plus">+</span><h3>اختبار التصريف والضغط <span class="tag tst">بانتظار الاختبار</span></h3><p>قياس القوة ونفاذية الماء قبل أي ادعاء.</p><div class="more"><div><div class="mrow"><span class="big">📏</span><p>نقيس مقاومة الضغط ونفاذية الماء وامتصاص الصدمات، ولا نعلن أي نتيجة قبل أن يثبتها المختبر.</p></div></div></div></div>
+<div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">6</span><span class="plus">+</span><h3><em style="font-style:normal">التشكيل والمعالجة</em> <span class="tag tst">قيد التجربة</span></h3><p>صب البلاط في قوالب وتصليبه.</p><div class="more"><div><div class="mrow"><span class="big">🧱</span><p>نصب الخلطة أو نكبسها في قوالب، ثم نتركها تتصلب في ظروف رطبة حتى تكتسب قوتها.</p></div></div></div></div>
+<div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">7</span><span class="plus">+</span><h3><em style="font-style:normal">اختبار التصريف والضغط</em> <span class="tag tst">بانتظار الاختبار</span></h3><p>قياس القوة ونفاذية الماء قبل أي ادعاء.</p><div class="more"><div><div class="mrow"><span class="big">📏</span><p>نقيس مقاومة الضغط ونفاذية الماء وامتصاص الصدمات، ولا نعلن أي نتيجة قبل أن يثبتها المختبر.</p></div></div></div></div>
 <div class="step" role="button" tabindex="0" aria-expanded="false"><span class="n">8</span><span class="plus">+</span><h3>تركيب البلاط في الحديقة</h3><p>فرش البلاط على طبقة حصى فوق التربة.</p><div class="more"><div><div class="mrow"><span class="big">🌿</span><p>نفرش البلاطات على طبقة حصى فوق التربة ونملأ الفواصل بالحصى، فيتسرّب المطر إلى الأرض بدل أن يجري على السطح (هدف التصميم).</p></div></div></div></div>
   </div>
  </div>
@@ -396,9 +391,9 @@ section{padding:70px 0}
    <article class="member rv"><div class="av">ع</div><h3>علي محمد آل رحمة</h3><p>عضو مؤسس</p></article>
    <article class="member rv"><div class="av">م</div><h3>محمد مرتضى آل سنان</h3><p>عضو مؤسس</p></article>
    <article class="member rv"><div class="av">ح</div><h3>الحسين نجف العجمي</h3><p>عضو مؤسس</p></article>
-   <article class="member rv"><div class="av">م</div><h3>محسن بن لؤي آل رحمة</h3><p>عضو مؤسس</p></article>
+   <article class="member rv"><div class="av">ع</div><h3>علي حسين العجمي</h3><p>عضو مؤسس</p></article>
    <article class="member rv"><div class="av">ع</div><h3>علي بن حسن القطيطي</h3><p>عضو مؤسس</p></article>
-   <article class="member rv"><div class="av">ع</div><h3>عبدالله خليفه الحوسني</h3><p>عضو مؤسس</p></article>
+   <article class="member rv"><div class="av">و</div><h3>الوقاد فايز الحوسني</h3><p>عضو مؤسس</p></article>
   </div>
  </div>
 </section>
@@ -437,7 +432,7 @@ section{padding:70px 0}
   <div class="cards bn">
    <article class="card"><div class="ico">🌱</div><h3>صديق للبيئة</h3><p>يقلل المخلفات في المكبات ويوفّر مواد خام جديدة كانت ستُستخرج من المحاجر.</p></article>
    <article class="card"><div class="ico">🛡️</div><h3>ممتص للصدمات</h3><p>سطح أكثر ليونة وأمانًا في مسارات الحدائق وأماكن لعب الأطفال.</p></article>
-   <article class="card"><div class="ico">🌫️</div><h3>يسحب ثاني أكسيد الكربون</h3><p>يمتص CO₂ من الهواء ويقلل امتصاص الحرارة، فيبقى المكان أبرد.</p></article>
+   <article class="card"><div class="ico">🌫️</div><h3>يمتص ثاني أكسيد الكربون</h3><p>يمتص CO₂ من الهواء للمساهمة في تقليل الاحتباس الحراري.</p></article>
    <article class="card"><div class="ico">💧</div><h3>يمتص الماء</h3><p>يسمح بتسرّب مياه الأمطار والري إلى التربة بدل أن تجري على السطح.</p></article>
   </div>
   <h3 class="msub" id="tech">تقنيات رَفَد: جرّبها بنفسك</h3>
@@ -453,7 +448,7 @@ section{padding:70px 0}
   </article>
 
   <article class="tech" id="t-co2">
-   <div class="th"><span class="ico">🫧</span><div><h3>تقنية تثبيت الكربون</h3><p>الكربنة المعدنية: كيف يمكن أن يتحول ثاني أكسيد الكربون إلى كربونات مستقرة داخل الخرسانة.</p></div><span class="tag tst">قيد الدراسة</span></div>
+   <div class="th"><span class="ico">🫧</span><div><h3>تقنية تثبيت الكربون</h3><p>الكربنة المعدنية: كيف يمتص البلاط ثاني أكسيد الكربون ويحوّله إلى كربونات مستقرة داخل الخرسانة، للمساهمة في تقليل الاحتباس الحراري.</p></div><span class="tag tst">قيد الدراسة</span></div>
    <div class="cs s0" id="cs"><div class="fm">CO₂ + Ca(OH)₂ → CaCO₃ + H₂O</div><div class="blk"></div></div>
    <div class="ctl" id="ctabs"><button class="tab on" data-cs="0">الهواء</button><button class="tab" data-cs="1">المسام</button><button class="tab" data-cs="2">التفاعل</button><button class="tab" data-cs="3">الكربونات</button><button class="tab pp" id="cPlay">▶ شغّل التفاعل</button></div>
    <div id="ccap"><h3></h3><p></p></div>
@@ -472,8 +467,9 @@ section{padding:70px 0}
 
   <article class="tech" id="t-heat">
    <div class="th"><span class="ico">🌡️</span><div><h3>تقنية تقليل حرارة السطح</h3><p>قارن حرارة بلاط رَفَد بالبلاط التقليدي تحت الشمس نفسها.</p></div><span class="tag tst">بانتظار القياس</span></div>
-   <div class="hs" id="hs"><span class="sun">🌞</span><div class="sam" id="sA"><span class="deg" id="dA">بانتظار القياس</span><span>بلاط تقليدي</span></div><div class="sam" id="sB"><span class="deg" id="dB">بانتظار القياس</span><span>بلاط رَفَد</span></div></div>
-   <div class="ctl"><button class="tab" id="sunBtn">☀ شغّل الشمس</button><label>التقليدي (°م) <input type="number" id="hA" min="0" max="100" step=".1" inputmode="decimal"></label><label>رَفَد (°م) <input type="number" id="hB" min="0" max="100" step=".1" inputmode="decimal"></label><button class="tab on" id="hGo">قارن</button><button class="tab" id="hClr">مسح</button></div>
+   <div class="hs on" id="hs"><span class="sun">🌞</span><div class="sam a" id="sA"><span class="deg" id="dA">بانتظار القياس</span><span class="hint">أسخن (تصوّر)</span><span>بلاط تقليدي</span></div><div class="sam b" id="sB"><span class="deg" id="dB">بانتظار القياس</span><span class="hint">أبرد (تصوّر)</span><span>بلاط رَفَد</span></div></div>
+   <p class="note">الفرق الظاهر في الرسم هو ما نتوقعه من التصميم (لون أفتح، نباتات وحصى في الفتحات، مسام تبخّر الرطوبة)، وليس نتيجة قياس. أدخل قراءاتك الحقيقية بعد التجربة ليحل الرقم محل التصوّر.</p>
+   <div class="ctl"><button class="tab on" id="sunBtn">☀ أطفئ الشمس</button><label>التقليدي (°م) <input type="number" id="hA" min="0" max="100" step=".1" inputmode="decimal"></label><label>رَفَد (°م) <input type="number" id="hB" min="0" max="100" step=".1" inputmode="decimal"></label><button class="tab on" id="hGo">قارن</button><button class="tab" id="hClr">مسح</button></div>
    <p class="note" id="hr" aria-live="polite">أدخل قراءتين فعليتين من ميزان حرارة للأسطح، أُخذتا في الساعة نفسها وتحت الشمس نفسها، وكرّر القياس عدة مرات.</p>
    <div class="tests"><div>لون أفتح للبلاطة <span class="tag tst">فرضية</span></div><div>فتحات بنباتات أو حصى <span class="tag tst">فرضية</span></div><div>مسام تحتفظ بالرطوبة وتبخّرها <span class="tag tst">فرضية</span></div></div>
   </article>
@@ -483,7 +479,7 @@ section{padding:70px 0}
 <footer>
  <svg class="foot-logo" viewBox="0 0 225.7 110" role="img" aria-label="رَفَدَ"><use href="#rafad"/></svg>
  <strong>© 2026 مشروع رَفَدَ. جميع الحقوق محفوظة.</strong>
- مبادرة طلابية من مدرسة الفاروق للتعليم الأساسي لدعم الاستدامة<br>
+ <em style="font-style:normal">مبادرة طلابية من مدرسة الفاروق للتعليم الأساسي لدعم الاستدامة</em><br>
  <button class="btn inst" id="inst" hidden>ثبّت التطبيق</button>
 </footer>
 
@@ -536,7 +532,7 @@ var sc=$('#scene'),bin=$('#bin'),N=26,bs=[],cur=0,timer=null,auto=!reduce,H=340,
 var caps=[['ركام مهدر','أطنان من الطوب والخرسانة تُلقى بعد الهدم، فتشغل الأرض وتضيّع مادة ما زالت صالحة.'],
 ['التجميع','تُفرز المخلفات من موقع الهدم، وتُجمع قطع الطوب في مكان واحد.'],
 ['إعادة التدوير','تُطحن القطع إلى ركام ناعم، ثم تُخلط بنسب مدروسة وتُشكَّل في قوالب جديدة.'],
-['في الحدائق','يعود الطوب طابوقًا وإنترلوك لمسارات الحدائق وزينتها: جميل، صديق للبيئة، يمتص الصدمات والماء ويسحب CO₂.']];
+['في الحدائق','يعود الطوب طابوقًا وإنترلوك لمسارات الحدائق وزينتها: جميل، صديق للبيئة، يمتص الصدمات والماء وثاني أكسيد الكربون لتقليل الاحتباس الحراري.']];
 var p0=['#b4583a','#9a4a2e','#c9784f','#64748B','#8c97a6'],p2=['#7c8f86','#8a9a93','#6b7f77'],p3=['#7c8f86','#6b7f77','#94a59d','#64748B'];
 for(var i=0;i<N;i++){var e=document.createElement('i');e.className='b';sc.appendChild(e);bs.push(e)}
 function rnd(i,k){var x=Math.sin(i*127.1+k*311.7)*43758.5453;return x-Math.floor(x)}
@@ -662,7 +658,7 @@ for(ci=0;ci<14;ci++)pos.push([16+rr(ci,41)*68,150+rr(ci,42)*100]);
 function mk(c,l,t){var e=document.createElement('i');e.className=c;e.style.left=l+'%';e.style.top=t+'px';cs.appendChild(e);return e}
 pos.forEach(function(p){mk('pore',p[0],p[1]);mk('cr',p[0],p[1]);mk('ca',p[0]+2.2,p[1]-14)});
 pos.forEach(function(p,i){cp.push(mk('pt',p[0],p[1]))});
-var ccaps=[['ثاني أكسيد الكربون في الهواء','غاز ينتج عن الصناعة والنقل، وهو ما نريد تقليله.'],['يدخل مسام الخرسانة','الخرسانة المعاد تدويرها مليئة بمسام دقيقة، يتسلل إليها الغاز.'],['يتفاعل مع الكالسيوم','داخل المسام هيدروكسيد الكالسيوم من الإسمنت القديم، فيتفاعل مع الغاز بوجود الرطوبة.'],['تتكوّن كربونات مستقرة','ينتج كربونات الكالسيوم، وهي بلورات صلبة تملأ المسام وتحبس الكربون داخل المادة.']];
+var ccaps=[['ثاني أكسيد الكربون في الهواء','غاز ينتج عن الصناعة والنقل، وهو ما نريد تقليله.'],['يدخل مسام الخرسانة','الخرسانة المعاد تدويرها مليئة بمسام دقيقة، يتسلل إليها الغاز.'],['يتفاعل مع الكالسيوم','داخل المسام هيدروكسيد الكالسيوم من الإسمنت القديم، فيتفاعل مع الغاز بوجود الرطوبة.'],['تتكوّن كربونات مستقرة','ينتج كربونات الكالسيوم، وهي بلورات صلبة تملأ المسام وتحبس الكربون داخل المادة بدل أن يبقى في الهواء ويزيد الاحتباس الحراري.']];
 function cStage(s){cst=s;cs.className='cs s'+s;
  cp.forEach(function(t,i){if(s===0){t.style.left=(6+rr(i,51)*88)+'%';t.style.top=(14+rr(i,52)*95)+'px'}else{t.style.left=pos[i][0]+'%';t.style.top=pos[i][1]+'px'}});
  $$('[data-cs]').forEach(function(b){b.classList.toggle('on',+b.dataset.cs===s)});
@@ -685,14 +681,16 @@ $('#sunBtn').onclick=function(){var o=hs.classList.toggle('on');this.classList.t
 function hcol(T){var t=Math.max(0,Math.min(1,(T-30)/40)),a=[207,214,211],b=[239,68,68];return 'rgb('+a.map(function(v,i){return Math.round(v+(b[i]-v)*t)}).join(',')+')'}
 $('#hGo').onclick=function(){var a=parseFloat($('#hA').value),b=parseFloat($('#hB').value),r=$('#hr');
  if(isNaN(a)||isNaN(b)||a<0||b<0||a>100||b>100){r.textContent='أدخل قراءتين صحيحتين بين 0 و100 درجة مئوية.';return}
- hs.classList.add('on');$('#sunBtn').classList.add('on');$('#sunBtn').textContent='☀ أطفئ الشمس';
+ hs.classList.add('on','real');$('#sunBtn').classList.add('on');$('#sunBtn').textContent='☀ أطفئ الشمس';
  $('#sA').style.background=hcol(a);$('#sB').style.background=hcol(b);$('#dA').textContent=a+'°م';$('#dB').textContent=b+'°م';
  var d=Math.round((a-b)*10)/10;
  r.textContent=(d>0?'بلاط رَفَد أبرد بمقدار '+d+' درجة مئوية في هذه القراءة.':d<0?'بلاط رَفَد أسخن بمقدار '+(-d)+' درجة مئوية في هذه القراءة.':'القراءتان متساويتان.')+' قراءة واحدة لا تكفي، فكرّر القياس.'};
-$('#hClr').onclick=function(){$('#hA').value='';$('#hB').value='';['sA','sB'].forEach(function(id){$('#'+id).style.background=''});$('#dA').textContent='بانتظار القياس';$('#dB').textContent='بانتظار القياس';$('#hr').textContent='أدخل قراءتين فعليتين من ميزان حرارة للأسطح، أُخذتا في الساعة نفسها وتحت الشمس نفسها، وكرّر القياس عدة مرات.'};
+$('#hClr').onclick=function(){hs.classList.remove('real');$('#hA').value='';$('#hB').value='';['sA','sB'].forEach(function(id){$('#'+id).style.background=''});$('#dA').textContent='بانتظار القياس';$('#dB').textContent='بانتظار القياس';$('#hr').textContent='أدخل قراءتين فعليتين من ميزان حرارة للأسطح، أُخذتا في الساعة نفسها وتحت الشمس نفسها، وكرّر القياس عدة مرات.'};
 route();
 upd2();
 })();
 </script>
+<script src="firebase-config.js"></script>
+<script src="site-content.js"></script>
 </body>
 </html>

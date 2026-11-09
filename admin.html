@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>لوحة إدارة رَفَدَ</title>
+<style>
+:root{--bg:#0A1311;--card:#112019;--line:#22382e;--tx:#e9f3ee;--mut:#8fa89c;--ac:#3ddc97;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,"Segoe UI",Tahoma,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 90px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:18px;margin:26px 0 10px}
+.mut{color:var(--mut);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+input,textarea{width:100%;background:#0b1612;color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}
+textarea{resize:vertical;min-height:44px}
+input:focus,textarea:focus{outline:2px solid var(--ac);outline-offset:0}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 18px;background:var(--ac);color:#04130c;font-weight:700}
+button.sec{background:#1c3027;color:var(--tx);font-weight:500}
+button.bad{background:transparent;color:var(--bad);border:1px solid var(--bad)}
+.row{display:flex;gap:8px;align-items:center;margin:8px 0}.row>*{flex:1}.row>button{flex:none}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}
+.tabs button{background:#16281f;color:var(--tx);font-weight:500}.tabs button.on{background:var(--ac);color:#04130c;font-weight:700}
+.bar{position:fixed;inset:auto 0 0 0;background:#0d1a15ee;backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:10px;align-items:center;justify-content:center}
+#msg{font-size:14px;min-width:140px}.ok{color:var(--ac)}.er{color:var(--bad)}
+.orig{font-size:12px;color:var(--mut);margin:2px 0 6px}
+.sec-h{position:sticky;top:0;background:var(--bg);padding:8px 0;color:var(--ac);font-weight:700;z-index:1}
+.changed{border-color:var(--ac)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>لوحة إدارة رَفَدَ</h1>
+<div class="mut">التعديلات تُحفظ في قاعدة بيانات مشتركة وتظهر لكل زوار الموقع.</div>
+
+<div id="cfgwarn" class="card er" hidden>لم يتم ضبط Firebase بعد. افتح <b>firebase-config.js</b> واتبع ملف <b>SETUP.md</b>.</div>
+
+<form id="login" class="card" hidden>
+  <div class="row"><input id="em" type="email" placeholder="البريد الإلكتروني" autocomplete="username" required></div>
+  <div class="row"><input id="pw" type="password" placeholder="كلمة المرور" autocomplete="current-password" required></div>
+  <div class="row"><button>دخول</button><span id="lmsg" class="er"></span></div>
+</form>
+
+<div id="app" hidden>
+  <div class="tabs" id="tabs">
+    <button data-t="team" class="on">فريق العمل</button>
+    <button data-t="texts">النصوص</button>
+    <button data-t="nums">الأرقام</button>
+    <button data-t="tools" class="sec">أدوات</button>
+  </div>
+  <div id="p-team"></div>
+  <div id="p-texts" hidden></div>
+  <div id="p-nums" hidden></div>
+  <div id="p-tools" hidden>
+    <div class="card"><b>إعادة الكل للأصل</b><div class="mut">يحذف كل التعديلات ويرجع الموقع كما في الملف الأصلي (بعد الحفظ).</div>
+      <div class="row"><button class="bad" id="reset">مسح كل التعديلات</button></div></div>
+    <div class="card"><button class="sec" id="out">تسجيل الخروج</button></div>
+  </div>
+  <div class="bar"><span id="msg"></span><button id="save">حفظ للموقع كامل</button><a href="index.html" target="_blank" style="color:var(--mut)">معاينة الموقع</a></div>
+</div>
+</div>
+
+<script>window.RAFAD_ADMIN=true</script>
+<script src="firebase-config.js"></script>
+<script src="site-content.js"></script>
+<script>
+(function(){
+'use strict';
+var FB=window.RAFAD_FB||{},RC=window.RafadContent,$=function(s){return document.querySelector(s)};
+var SS=sessionStorage,st={team:null,texts:[],nums:[],orig:null,cur:{}};
+function say(t,c){var m=$('#msg');m.textContent=t;m.className=c||''}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* ---- Auth (REST) ---- */
+function authCall(url,body,form){
+  return fetch(url,{method:'POST',headers:{'Content-Type':form?'application/x-www-form-urlencoded':'application/json'},body:form?body:JSON.stringify(body)})
+  .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error((j.error&&j.error.message)||'خطأ');return j})});
+}
+function signIn(e,p){
+  return authCall('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='+FB.apiKey,{email:e,password:p,returnSecureToken:true}).then(function(j){
+    SS.setItem('rf_id',j.idToken);SS.setItem('rf_rt',j.refreshToken);return j.idToken});
+}
+function refresh(){
+  var rt=SS.getItem('rf_rt');if(!rt)return Promise.reject(new Error('no'));
+  return authCall('https://securetoken.googleapis.com/v1/token?key='+FB.apiKey,'grant_type=refresh_token&refresh_token='+encodeURIComponent(rt),true).then(function(j){
+    SS.setItem('rf_id',j.id_token);SS.setItem('rf_rt',j.refresh_token);return j.id_token});
+}
+function save(json,retry){
+  var body={fields:{json:{stringValue:JSON.stringify(json)}}};
+  return fetch(RC.DOC_URL+'?updateMask.fieldPaths=json',{method:'PATCH',headers:{'Content-Type':'application/json','Authorization':'Bearer '+SS.getItem('rf_id')},body:JSON.stringify(body)}).then(function(r){
+    if((r.status===401||r.status===403)&&!retry)return refresh().then(function(){return save(json,true)});
+    if(!r.ok)return r.json().then(function(j){throw new Error((j.error&&j.error.message)||('HTTP '+r.status))});
+  });
+}
+
+/* ---- بيانات الأصل من index.html ---- */
+function loadOrig(){
+  return fetch('index.html',{cache:'no-store'}).then(function(r){return r.text()}).then(function(h){
+    var d=new DOMParser().parseFromString(h,'text/html');
+    var sup=d.querySelector('.member.sup'),mem=[].slice.call(d.querySelectorAll('#team .team .member'));
+    var team={sup:sup.querySelector('h3').textContent.trim(),supRole:sup.querySelector('.role').textContent.trim(),
+      members:mem.map(function(a){return{n:a.querySelector('h3').textContent.trim(),r:a.querySelector('p').textContent.trim()}})};
+    var texts=RC.leaves(d).map(function(l){
+      var sc=l.el.closest('section,header,footer,nav'),hd=sc&&sc.querySelector('h2');
+      return{o:l.text,sec:(hd&&hd.textContent.trim())||(sc&&(sc.id||sc.tagName.toLowerCase()))||'عام'};
+    });
+    var seen={};texts=texts.filter(function(t){if(seen[t.o])return false;return seen[t.o]=1});
+    var nums=[].slice.call(d.querySelectorAll('[data-to]')).map(function(n,i){
+      var p=n.parentNode,b=p&&p.querySelector('b');
+      return{i:i,o:n.dataset.to,pre:n.dataset.pre||'',suf:n.dataset.suf||'',label:b?b.textContent.trim():'رقم '+(i+1)};
+    });
+    return{team:team,texts:texts,nums:nums};
+  });
+}
+
+/* ---- واجهات ---- */
+function renderTeam(){
+  var t=st.team,h='<div class="card"><label class="mut">الأستاذ المشرف</label><div class="row"><input id="t-sup" value="'+esc(t.sup)+'"></div>'+
+   '<label class="mut">وصف المشرف</label><div class="row"><input id="t-suprole" value="'+esc(t.supRole||'')+'"></div></div><h2>الأعضاء</h2>';
+  t.members.forEach(function(m,i){
+    h+='<div class="card"><div class="row"><input data-mn="'+i+'" value="'+esc(m.n)+'" placeholder="الاسم"><input data-mr="'+i+'" value="'+esc(m.r)+'" placeholder="الصفة" style="max-width:170px">'+
+       '<button class="sec" data-up="'+i+'" title="أعلى">↑</button><button class="sec" data-dn="'+i+'" title="أسفل">↓</button><button class="bad" data-rm="'+i+'">حذف</button></div></div>';
+  });
+  h+='<div class="row"><button class="sec" id="addm">+ إضافة عضو</button></div>';
+  $('#p-team').innerHTML=h;
+}
+function pullTeam(){
+  var s=$('#t-sup');if(!s)return;
+  st.team.sup=s.value.trim();st.team.supRole=$('#t-suprole').value.trim();
+  document.querySelectorAll('[data-mn]').forEach(function(i){st.team.members[+i.dataset.mn].n=i.value.trim()});
+  document.querySelectorAll('[data-mr]').forEach(function(i){st.team.members[+i.dataset.mr].r=i.value.trim()});
+}
+function renderTexts(){
+  var h='',last='';
+  st.texts.forEach(function(t,i){
+    if(t.sec!==last){h+='<div class="sec-h">'+esc(t.sec)+'</div>';last=t.sec}
+    var v=st.cur.texts[t.o];if(v===undefined)v=t.o;
+    h+='<div class="card'+(v!==t.o?' changed':'')+'"><div class="orig">الأصل: '+esc(t.o)+'</div><textarea data-ti="'+i+'" rows="'+Math.max(1,Math.ceil(v.length/70))+'">'+esc(v)+'</textarea></div>';
+  });
+  $('#p-texts').innerHTML=h;
+}
+function renderNums(){
+  var h='<div class="mut">الرقم الذي يعدّ إليه العدّاد (بدون + أو %).</div>';
+  st.nums.forEach(function(n){
+    var v=st.cur.nums[n.i];if(v===undefined)v=n.o;
+    h+='<div class="card"><div class="orig">'+esc(n.label)+' — الأصل: '+esc(n.pre+Number(n.o).toLocaleString('en-US')+n.suf)+'</div><input type="number" data-ni="'+n.i+'" value="'+esc(v)+'"></div>';
+  });
+  $('#p-nums').innerHTML=h;
+}
+function collect(){
+  pullTeam();
+  var texts=[];
+  document.querySelectorAll('[data-ti]').forEach(function(a){
+    var o=st.texts[+a.dataset.ti].o,v=a.value.trim();if(v&&v!==o)texts.push({o:o,t:v});
+  });
+  var nums=[];
+  document.querySelectorAll('[data-ni]').forEach(function(a){
+    var n=st.nums[+a.dataset.ni];if(a.value!==''&&String(+a.value)!==String(n.o)&&isFinite(+a.value))nums.push({i:n.i,o:n.o,to:+a.value});
+  });
+  var team=st.team;
+  team.members=team.members.filter(function(m){return m.n});
+  return{team:team,texts:texts,nums:nums,updated:new Date().toISOString()};
+}
+function fromContent(c){
+  st.team=JSON.parse(JSON.stringify(c.team||st.orig.team));
+  st.cur={texts:{},nums:{}};
+  (c.texts||[]).forEach(function(x){st.cur.texts[x.o]=x.t});
+  (c.nums||[]).forEach(function(x){st.cur.nums[x.i]=x.to});
+  renderTeam();renderTexts();renderNums();
+}
+
+/* ---- أحداث ---- */
+function showApp(){
+  $('#login').hidden=true;$('#app').hidden=false;say('جارِ التحميل…');
+  Promise.all([loadOrig(),RC.fetchRemote()]).then(function(r){
+    st.orig=r[0];st.texts=r[0].texts;st.nums=r[0].nums;fromContent(r[1]);say('جاهز','ok');
+  }).catch(function(e){say('تعذّر التحميل: '+e.message,'er')});
+}
+$('#tabs').addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#tabs button').forEach(function(x){x.classList.toggle('on',x===b)});
+  ['team','texts','nums','tools'].forEach(function(k){$('#p-'+k).hidden=(k!==b.dataset.t)});
+});
+$('#p-team').addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;pullTeam();var m=st.team.members,i;
+  if(b.id==='addm')m.push({n:'',r:'عضو مؤسس'});
+  else if(b.dataset.rm!==undefined){i=+b.dataset.rm;if(confirm('حذف «'+(m[i].n||'العضو')+'»؟'))m.splice(i,1)}
+  else if(b.dataset.up!==undefined){i=+b.dataset.up;if(i>0){var t=m[i];m[i]=m[i-1];m[i-1]=t}}
+  else if(b.dataset.dn!==undefined){i=+b.dataset.dn;if(i<m.length-1){var u=m[i];m[i]=m[i+1];m[i+1]=u}}
+  renderTeam();
+});
+$('#save').onclick=function(){
+  var c=collect();say('جارِ الحفظ…');
+  save(c).then(function(){say('تم الحفظ — يظهر للجميع خلال لحظات','ok');
+    try{localStorage.setItem('rafad_content_v1',JSON.stringify(c))}catch(e){}
+  }).catch(function(e){say('فشل الحفظ: '+e.message,'er')});
+};
+$('#reset').onclick=function(){
+  if(!confirm('مسح كل التعديلات؟'))return;
+  save({}).then(function(){try{localStorage.removeItem('rafad_content_v1')}catch(e){}fromContent({});say('تم المسح','ok')}).catch(function(e){say('فشل: '+e.message,'er')});
+};
+$('#out').onclick=function(){SS.clear();location.reload()};
+$('#login').addEventListener('submit',function(e){
+  e.preventDefault();$('#lmsg').textContent='';
+  signIn($('#em').value.trim(),$('#pw').value).then(showApp).catch(function(x){
+    $('#lmsg').textContent=/INVALID|PASSWORD|EMAIL|CREDENTIAL/.test(x.message)?'بيانات الدخول غير صحيحة':x.message});
+});
+if(!FB.projectId||!FB.apiKey)$('#cfgwarn').hidden=false;
+else if(SS.getItem('rf_rt'))refresh().then(showApp).catch(function(){$('#login').hidden=false});
+else $('#login').hidden=false;
+})();
+</script>
+</body>
+</html>
