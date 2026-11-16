@@ -1,4 +1,4 @@
-/* رَفَدَ — محتوى الموقع المشترك (يُحمَّل لكل الزوار من Firestore) */
+/* مدماك — محتوى الموقع المشترك (يُحمَّل لكل الزوار من Firestore) */
 (function(){
 'use strict';
 var CFG=window.RAFAD_FB||{}, CACHE='rafad_content_v1';

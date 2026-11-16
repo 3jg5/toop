@@ -1,0 +1,13 @@
+formulation,T_C,t50_days,t90_days,service_life_days_(r_eff>=0.5m;K=0.005;C*=100)
+F0 neat oil in porous skin,25,23.0,98.4,105.1
+F0 neat oil in porous skin,40,9.6,41.2,60.9
+F0 neat oil in porous skin,55,4.4,19.1,34.5
+F1 oil on diatomite/zeolite carrier,25,569.6,nan,32.6
+F1 oil on diatomite/zeolite carrier,40,217.0,nan,86.4
+F1 oil on diatomite/zeolite carrier,55,90.2,388.5,161.8
+F2 beta-CD complex + carrier,25,nan,nan,11.9
+F2 beta-CD complex + carrier,40,432.7,nan,43.1
+F2 beta-CD complex + carrier,55,138.2,595.5,133.0
+F3 biopolymer microcapsules + sealer,25,165.1,297.2,313.6
+F3 biopolymer microcapsules + sealer,40,57.1,102.7,120.0
+F3 biopolymer microcapsules + sealer,55,22.0,39.3,49.9
