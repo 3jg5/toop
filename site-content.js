@@ -49,8 +49,8 @@ function apply(c){
       if(n.textContent.trim()!=='0')n.textContent=(n.dataset.pre||'')+Math.round(+want).toLocaleString('en-US')+(n.dataset.suf||'');
     }
   }
-  /* الفريق */
-  var tm=c.team;if(!tm)return;
+  /* الفريق: أسماء الفريق تُحرَّر بالعربية، فلا تُطبَّق على النسخة الإنجليزية */
+  var tm=c.team;if(!tm||document.documentElement.lang!=='ar')return;
   var sup=document.querySelector('.member.sup'),grid=document.querySelector('#team .team');
   if(sup&&tm.sup){
     sup.querySelector('h3').textContent=tm.sup;
@@ -94,6 +94,6 @@ fetchRemote().then(function(c){setCache(c);apply(c)}).catch(function(){});
 var logo=document.querySelector('.foot-logo'),taps=0,tt;
 if(logo)logo.addEventListener('click',function(){
   taps++;clearTimeout(tt);tt=setTimeout(function(){taps=0},1500);
-  if(taps>=5){taps=0;location.href='admin.html'}
+  if(taps>=5){taps=0;location.href=new URL('admin.html',(document.querySelector('script[src$="site-content.js"]')||{src:location.href}).src).href}
 });
 })();

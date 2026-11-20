@@ -2,8 +2,19 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
+<script>(function(){var K='midmak_lang',p=null;try{p=localStorage.getItem(K)}catch(e){}if(!p){var m=document.cookie.match(/(?:^|; )midmak_lang=(ar|en)/);p=m&&m[1]}if(!p){var n=((navigator.languages&&navigator.languages[0])||navigator.language||'ar').toLowerCase();p=n.indexOf('ar')===0?'ar':'en'}location.replace('/'+p+'/'+location.hash);})();</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>مدماك | مشروع إعادة تدوير مخلفات البناء</title>
+<link rel="canonical" href="https://midmak-om.vercel.app/ar/">
+<link rel="alternate" hreflang="ar" href="https://midmak-om.vercel.app/ar/">
+<link rel="alternate" hreflang="en" href="https://midmak-om.vercel.app/en/">
+<link rel="alternate" hreflang="x-default" href="https://midmak-om.vercel.app/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="مدماك">
+<meta property="og:title" content="مدماك | مشروع إعادة تدوير مخلفات البناء"><meta property="og:description" content="مدماك: مبادرة طلابية من مدرسة الفاروق لتحويل مخلفات الطوب والخرسانة إلى منتجات بناء مستدامة.">
+<meta property="og:url" content="https://midmak-om.vercel.app/ar/"><meta property="og:locale" content="ar_OM"><meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Midmak", "alternateName": "مدماك", "url": "https://midmak-om.vercel.app/", "inLanguage": "ar"}</script>
 <meta name="theme-color" content="#FFE7C2">
 <meta name="description" content="مدماك: مبادرة طلابية من مدرسة الفاروق لتحويل مخلفات الطوب والخرسانة إلى منتجات بناء مستدامة.">
 <link rel="manifest" href="manifest.webmanifest">
@@ -141,6 +152,13 @@ section{padding:70px 0}
 .brand{height:52px;width:auto;display:block}
 .brandlk{display:block;flex:none}
 .hero-logo{height:104px;width:auto;display:block;margin-bottom:28px}
+.school{display:flex;align-items:center;gap:16px;margin-top:26px;background:var(--sand-soft);border:1.5px solid var(--line);border-radius:18px;padding:10px 20px 10px 22px;width:fit-content;max-width:100%}
+.school img{height:76px;width:auto;display:block;flex:none}
+.school span{font:700 15px/1.5 Tajawal,"Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;color:var(--ink)}
+.school.foot-school{margin:18px auto 0;background:var(--sand-soft)}
+.school.foot-school span{color:var(--ink)}
+@media (max-width:700px){.school img{height:60px}.school span{font-size:13px}}
+
 .foot-logo{height:64px;width:auto;margin:0 auto 14px;display:block}
 .inst{margin-top:16px;padding:10px 26px;font-size:16px}
 #team .title,#team .lead{text-align:center;margin-inline:auto}
@@ -247,6 +265,28 @@ section{padding:70px 0}
 .hs.on .sam.b::after{opacity:.25}
 .hint{font-size:13px;opacity:.85}
 .hs.real .hint{display:none}
+
+nav a{white-space:nowrap}
+@media (min-width:1281px){header .wrap{max-width:1240px}}
+/* خط احتياطي عام للأرقام */
+.num,.step .n{font-family:Cairo,Tajawal,"Segoe UI",system-ui,sans-serif}
+/* ===== i18n: language switch ===== */
+.lang{display:flex;gap:2px;margin-inline-start:12px;padding:3px;border:1.5px solid var(--em);border-radius:99px;background:var(--sand-soft);flex:none}
+.lang a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:38px;padding:0 12px;border-radius:99px;font:700 14px/1 Cairo,Tajawal,sans-serif;color:var(--em);transition:background .25s,color .25s}
+.lang a:hover{background:rgba(121,0,0,.12)}
+.lang a[aria-current]{background:var(--em);color:var(--on-em);pointer-events:none}
+.lang a:focus-visible{outline-offset:2px}
+@media (max-width:1100px){.lang{margin-inline-start:auto}.burger{margin-inline-start:0}}
+@media (max-width:700px){.lang a{min-height:44px}.bar{flex-wrap:wrap}.lang{order:2}.burger{order:2}}
+/* زر اللغة يزيد عرض الشريط: قائمة الجوال حتى 1280px في اللغتين */
+@media (min-width:1101px) and (max-width:1280px){
+html .burger{display:block}
+html nav{display:none;position:absolute;top:100%;inset-inline:0;flex-direction:column;background:var(--sand-deep);padding:12px 20px 20px}
+html nav.open{display:flex}
+html nav a{padding:12px 14px;font-size:16px}
+html .lang{margin-inline-start:auto}
+html .burger{margin-inline-start:0}
+}
 </style>
 </head>
 <body>
@@ -263,6 +303,7 @@ section{padding:70px 0}
   <nav id="nav">
    <a href="#concept">الفكرة</a><a href="#how">الآلية</a><a href="#stats">الأرقام</a><a href="#model">نموذج العمل</a><a href="#make">التصنيع</a><a href="#team">الفريق</a><a class="hl" href="#mechanism">رحلة الطوب</a>
   </nav>
+  <div class="lang" role="group" aria-label="اللغة"><a href="/ar/" lang="ar" hreflang="ar" data-lang="ar" aria-current="true" aria-label="العربية (اللغة الحالية)">العربية</a><a href="/en/" lang="en" hreflang="en" data-lang="en" aria-label="Switch to English">EN</a></div>
   <button class="burger" id="burger" aria-label="القائمة" aria-expanded="false">☰</button>
  </div>
 </header>
@@ -278,6 +319,7 @@ section{padding:70px 0}
   <h1 class="h-in" style="--i:0"><em style="font-style:normal">من ركام الهدم إلى أساسات المستقبل…</em> <span>نبني عُمان الغد، بلا هدرٍ اليوم.</span></h1>
   <p class="h-in" style="--i:1">مشروع طلابي مبتكر لتحويل مخلفات الطوب والخرسانة إلى ثروة وطنية مستدامة تدعم الاقتصاد الدائري.</p>
   <a class="btn h-in" style="--i:2" href="#mechanism">اكتشف الآلية</a>
+  <div class="school h-in" style="--i:3"><img src="logo-farouq.png" alt="شعار مدرسة الفاروق للتعليم الأساسي" width="55" height="76" decoding="async"><span>مبادرة طلابية من مدرسة الفاروق<br>للتعليم الأساسي (10-12)</span></div>
  </div>
 </section>
 
@@ -527,6 +569,7 @@ section{padding:70px 0}
  <svg class="foot-logo" viewBox="0 0 418 194" role="img" aria-label="مدماك"><use href="#midmak-sand"/></svg>
  <strong>© 2026 مشروع مدماك. جميع الحقوق محفوظة.</strong>
  <em style="font-style:normal">مبادرة طلابية من مدرسة الفاروق للتعليم الأساسي لدعم الاستدامة</em><br>
+ <div class="school foot-school"><img src="logo-farouq.png" alt="شعار مدرسة الفاروق" width="55" height="76" loading="lazy" decoding="async"><span>مدرسة الفاروق للتعليم الأساسي (10-12)<br>تعليم .. أخلاق .. إبداع</span></div>
  <button class="btn inst" id="inst" hidden>ثبّت التطبيق</button>
 </footer>
 
@@ -874,5 +917,6 @@ var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeou
 size();initBugs();update();drawScene();
 })();
 </script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('.lang a');if(!a)return;var l=a.getAttribute('data-lang');try{localStorage.setItem('midmak_lang',l)}catch(_){}document.cookie='midmak_lang='+l+';path=/;max-age=31536000;samesite=lax';a.href='/'+l+'/'+location.hash});</script>
 </body>
 </html>

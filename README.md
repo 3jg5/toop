@@ -12,3 +12,7 @@
 - `docs/SAND_THEME.md` — sampled colours (#FFE7C2 sand), token diff, WCAG table, typography, deployment + QA checklists
 - `brand/sand/` — traced wordmark «مدماك / MIDMAK» (SVG: on sand, on sand with background, on dark, mono maroon); the older `brand/` icon-lockup files are superseded for the site
 - `docs/screenshots/` — mobile / tablet / desktop captures
+
+
+## اللغتان العربية والإنجليزية
+المصدر الآن في `src/page.html` ويُبنى `index.html` و`ar/` و`en/` بأمر `python3 tools/build_i18n.py`. التفاصيل وقائمة الفحص في `docs/I18N.md`.
